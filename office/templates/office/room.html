@@ -1,0 +1,1310 @@
+{% extends 'office/templates.html' %} {% block blockname %}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="alert alert-danger" role="alert">
+                    <div class="content__left content__left_full">
+                        <h2>
+                            Основная информация<span class="btn btn_blue btn_small btn_supp">
+                                <i class="fa fa-sliders"></i>
+                                Дополнительные параметры
+                            </span>
+                        </h2>
+                        <!--  card-->
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        <div class="unit" id="name">
+                                            <div class="infofield">
+                                                Название
+                                                <i class="tooltip fa fa-question-circle" title="Используется в заголовках, ссылках на товар, при заказе."></i>
+                                            </div>
+                                            <input class="form-control form-control-sm" type="text" name="name" value="">
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        <div class="col-lg" class="unit" id="hit">
+                                            <input type="checkbox" id="input_act" name="act" value="1" checked="" />
+                                            <label for="input_act"><b>Опубликовать на сайте<i class="tooltip fa fa-question-circle"
+                                                        title="Если не отмечена, страница товара не будет выводиться на сайте."></i></b></label>
+                                        </div>
+
+                                        <div class="col-lg" class="unit" id="new">
+                                            <input type="checkbox" id="input_no_buy" name="no_buy" value="1" />
+                                            <label for="input_no_buy"><b>Объект временно отсутствует
+                                                    <i class="tooltip fa fa-question-circle" title="Если отмечена, у товара не будет кнопки «Купить», выведется сообщение «Товар временно отсутствует», а посетители сайта смогут подписаться на уведомление о поступлении. Подписанных посетителей можно будет увидеть в разделе «Статистика» - «Список ожиданий». В случае поступления товара и снятии данной галки, все подписанные посетители автоматически получат уведомления о поступлении товара на указанный электронный ящик."></i></b></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end card-->
+
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        <div class="unit" id="price">
+                                            <div class="infofield">
+                                                Цена
+                                                <i class="tooltip fa fa-question-circle" title="Можно задать несколько вариантов цены и количества для товара. Для этого следует создать дополнительную характеристику с типом «список с выбором нескольких значений», отметить опцию «Доступен к выбору при заказе» и при редактировании товара отметить возле характеристики опцию «Влияет на цену». К варианту товара можно прикрепить изображение из тех, что уже загружены для товара.  Поле «Количество» отображается, если в настройках модуля подключена опция «Учитывать остатки товаров на складе». Если поле «Количество» пустое и в настройках не отмечена опция «Разрешать покупать товары без цены», то товар нельзя купить."></i>
+                                            </div>
+                                            <form>
+                                                <div class="form-row">
+                                                    <div class="col-6">
+                                                        <input class="form-control form-control-sm" type="text" class="number"
+                                                            name="price" value="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <input class="form-control form-control-sm " type="text" class="number"
+                                                            placeholder="Старая цена" name="old_price" value="">
+                                                    </div>
+
+                                                </div>
+                                            </form>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        <input name="price_import_id" value="" type="hidden" />
+                                        Валюта &nbsp;
+                                        <input id="currency_id" name="currency" type="radio" value="0" checked="" />
+                                        <label for="currency_id">Основная</label>
+                                        <input name="currency" id="currency_1" type="radio" value="1" />
+                                        <label for="currency_1">Euro</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="unit" id="article">
+                            <div class="infofield">Артикул <i class="tooltip fa fa-question-circle" title="Внутренний артикул товара. Если заполнить, будет выводиться на сайте и использоваться в поиске по товарам."></i></div>
+                            <input type="text" name="article" value="">
+                        </div>
+
+                        <div class="unit" id="measure_unit">
+                            <div class="infofield">Единица измерения</div>
+                            <input type="text" name="measure_unit" value="">
+                        </div>-->
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        <h3>
+                                            <i class="fa fa-hand-pointer-o"></i> Выбрать категорию
+                                        </h3>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <label for="example1">
+                                            Категория:
+                                        </label>
+                                        <select class="form-control select2" id="example1" name="state">
+                                            <option value="1">Купить квартиру</option>
+                                            <option value="11">&nbsp;&nbsp;Студии</option>
+                                            <option value="40">&nbsp;&nbsp;Комнаты</option>
+                                            <option value="7">&nbsp;&nbsp;1-комнатные</option>
+                                            <option value="8">&nbsp;&nbsp;2-комнатные</option>
+                                            <option value="9">&nbsp;&nbsp;3-комнатные</option>
+                                            <option value="13">&nbsp;&nbsp;4+ (от 4-х комнат и выше)</option>
+                                            <option value="2">Снять квартиру</option>
+                                            <option value="18">&nbsp;&nbsp;Студии</option>
+                                            <option value="14">&nbsp;&nbsp;1-комнатные</option>
+                                            <option value="15">&nbsp;&nbsp;2-комнатные</option>
+                                            <option value="16">&nbsp;&nbsp;3-комнатные</option>
+                                            <option value="17">&nbsp;&nbsp;4+ (от 4-х комнат и выше)</option>
+                                            <option value="41">Снять коммерческую недвижимость</option>
+                                            <option value="42">Сдать коммерческую недвижимость</option>
+                                            <option value="4">Загородная недвижимость</option>
+                                            <option value="25">&nbsp;&nbsp;Купить дом</option>
+                                            <option value="28">&nbsp;&nbsp;Купить дачу</option>
+                                            <option value="26">&nbsp;&nbsp;Купить участок</option>
+                                            <option value="38">&nbsp;&nbsp;Купить коттедж</option>
+                                            <option value="3">Коммерческая недвижимость</option>
+                                            <option value="22">&nbsp;&nbsp;Офис</option>
+                                            <option value="23">&nbsp;&nbsp;Торговая площадь</option>
+                                            <option value="21">&nbsp;&nbsp;Гараж</option>
+                                            <option value="20">&nbsp;&nbsp;Другое</option>
+                                            <option value="5">Новостройки</option>
+                                            <option value="30">&nbsp;&nbsp;Сданные</option>
+                                            <option value="31">&nbsp;&nbsp;Строящиеся новостройки</option>
+                                            <option value="32">&nbsp;&nbsp;Эконом вариант</option>
+                                            <option value="6">Снять посуточно</option>
+                                            <option value="33">&nbsp;&nbsp;Квартиры посуточно</option>
+                                            <option value="34">&nbsp;&nbsp;Коттеджи на сутки</option>
+                                            <option value="35">&nbsp;&nbsp;Комнаты на сутки</option>
+                                            <option value="36">&nbsp;&nbsp;Хостелы</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- end card-->
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        <div class="col-lg-4" class="unit" id="hit">
+                                            <input type="checkbox" id="input_hit" name="hit" value="1" />
+                                            <label for="input_hit"><b>Хит
+                                                    <i class="tooltip fa fa-question-circle" title="Если отмечена, товар будет участвовать в поиске по соответствующему признаку, в списках и карточке товара будет выводиться соответствующий значёк. Товары можно будет группировать."></i></b></label>
+                                        </div>
+
+                                        <div class="col-lg-4" class="unit" id="new">
+                                            <input type="checkbox" id="input_new" name="new" value="1" />
+                                            <label for="input_new"><b>Новинка
+                                                    <i class="tooltip fa fa-question-circle" title="Если отмечена, товар будет участвовать в поиске по соответствующему признаку, в списках и карточке товара будет выводиться соответствующий значёк. Товары можно будет группировать."></i></b></label>
+                                        </div>
+
+                                        <div class="col-lg-4" class="unit" id="check_action">
+                                            <input type="checkbox" id="input_check_action" name="check_action" value="1" />
+                                            <label for="input_check_action"><b>Акция
+                                                    <i class="tooltip fa fa-question-circle" title="Если отмечена, товар будет участвовать в поиске по соответствующему признаку, в списках и карточке товара будет выводиться соответствующий значёк. Товары можно будет группировать."></i></b></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end card-->
+
+                <!--<div class="unit" id="brand_id">
+                            <div class="infofield">Производитель <i class="tooltip fa fa-question-circle" title="Список производителей редактируется во вкладке выше."></i></div>
+                            <select name="brand_id">
+                                <option value="0">Нет</option>
+                                <option value="1">Фирма А</option>
+                            </select>
+                        </div>-->
+
+                <!--<div class="unit" id="weight">
+                            <div class="infofield">Вес <i class="tooltip fa fa-question-circle" title="Используется для расчета стоимости доставки."></i></div>
+                            <input type="text" class="number" name="weight" value="">
+                        </div>
+
+                        <div class="unit" id="length">
+                            <div class="infofield">Длина <i class="tooltip fa fa-question-circle" title="Используется для расчета стоимости доставки."></i></div>
+                            <input type="text" class="number" name="length" value="">
+                        </div>
+
+                        <div class="unit" id="width">
+                            <div class="infofield">Ширина <i class="tooltip fa fa-question-circle" title="Используется для расчета стоимости доставки."></i></div>
+                            <input type="text" class="number" name="width" value="">
+                        </div>
+
+                        <div class="unit" id="height">
+                            <div class="infofield">Высота <i class="tooltip fa fa-question-circle" title="Используется для расчета стоимости доставки."></i></div>
+                            <input type="text" class="number" name="height" value="">
+                        </div>-->
+                <div class="row">
+                    <div class="col-xl-12">
+
+
+                        <div class="alert alert-danger" role="alert">
+                            <div class="content__left content__left_full">
+                                <h2>
+                                    Изображения
+                                    <i class="tooltip fa fa-question-circle" title="Иллюстрации к товару. Можно загрузить сразу несколько. Иллюстрации загрузятся автоматически после выбора. Варианты размера загружаемых изображений определяются в настройках. Параметр выводится, если в настройках модуля отмечена опция «Использовать изображения»."></i>
+                                </h2>
+                                <!--<h2 id="hr3"></h2>
+                                    <input type="hidden" name="tmpcode" value="efe34c4e2190e97d1adc625902822b13">-->
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                        <div class="card mb-3">
+                                            <div class="card-header">
+                                                <h3><i class="fa fa-file"></i> Изображения</h3>
+                                                Максимальный размер загружаемых изображений 200M.
+                                            </div>
+
+                                            <div class="error_images0 error hide"></div>
+                                            <div class="ipopup ipopup_edit images_edit"></div>
+                                            <div class="hide selectarea"></div>
+
+                                            <div class="card-body" id="images0" param_id="0">
+
+
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="customFile" name="images[]"
+                                                        data-url="#" param_id="0" multiple="multiple">
+                                                    <label class="custom-file-label" for="customFile">загрузить
+                                                        изображения</label>
+                                                </div>
+
+                                                <div class="jFiler-items jFiler-row">
+                                                    <ul class="jFiler-items-list jFiler-items-grid">
+                                                        <li class="jFiler-item" data-jfiler-index="1" style>
+                                                            <div class="jFiler-item-container">
+                                                                <div class="jFiler-item-inner">
+                                                                    <div class="jFiler-item-thumb">
+                                                                        <div class="jFiler-item-status"></div>
+                                                                        <div class="jFiler-item-info"> <span class="jFiler-item-title"><b
+                                                                                    title="2.jpg">2.jpg</b></span>
+                                                                            <span class="jFiler-item-others">145 Bytes</span>
+                                                                        </div>
+                                                                        <div class="jFiler-item-thumb-image"><img src="assets/images/sample-image-2.jpg"
+                                                                                draggable="false"></div>
+                                                                    </div>
+                                                                    <div class="jFiler-item-assets jFiler-row">
+                                                                        <ul class="list-inline pull-left">
+                                                                            <li><span class="jFiler-item-others"><i
+                                                                                        class="icon-jfi-file-image jfi-file-ext-jpg"></i></span></li>
+                                                                        </ul>
+                                                                        <ul class="list-inline pull-right">
+                                                                            <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="jFiler-item" data-jfiler-index="0" style>
+                                                            <div class="jFiler-item-container">
+                                                                <div class="jFiler-item-inner">
+                                                                    <div class="jFiler-item-thumb">
+                                                                        <div class="jFiler-item-status"></div>
+                                                                        <div class="jFiler-item-info"> <span class="jFiler-item-title"><b
+                                                                                    title="1.jpg">1.jpg</b></span>
+                                                                            <span class="jFiler-item-others">145 Bytes</span>
+                                                                        </div>
+                                                                        <div class="jFiler-item-thumb-image"><img src="assets/images/sample-image-1.jpg"
+                                                                                draggable="false"></div>
+                                                                    </div>
+                                                                    <div class="jFiler-item-assets jFiler-row">
+                                                                        <ul class="list-inline pull-left">
+                                                                            <li><span class="jFiler-item-others"><i
+                                                                                        class="icon-jfi-file-image jfi-file-ext-jpg"></i></span></li>
+                                                                        </ul>
+                                                                        <ul class="list-inline pull-right">
+                                                                            <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- end card-->
+
+
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                        <div class="card mb-3">
+                                            <div class="card-header">
+                                                <h3><i class="fa fa-file"></i> План Квартиры</h3>
+                                                Загрузить файл с планом квартиры.Максимум 3 файла,
+                                                все файлы вместе должны иметь максимум 3 МБ, а
+                                                расширения должны совпадать в массиве ['jpg',
+                                                'png'].
+                                            </div>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFile" name="images[]"
+                                                    data-url="#" param_id="0" multiple="multiple">
+                                                <label class="custom-file-label" for="customFile">загрузить изображения</label>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end card-->
+                            <!--<a href="javascript:void(0)" class="view_images">
+                                <i class="fa fa-plus-square"></i>
+                                Выбрать из загруженных
+                            </a>
+
+                            <div class="div_images_links">
+                                <div>Загрузить изображение по ссылке:</div>
+
+                                <input type="text" placeholder="http://">
+                                <span class="btn btn_blue btn_small images_upload_links" param_id="0">Загрузить</span>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="alert alert-danger" role="alert">
+                    <div class="content__left content__left_full">
+                        <h2>
+                            <a href="#">Общие скидки</a>
+                            <i class="tooltip fa fa-question-circle" title="Список глобальных скидок. Возможность подключить или отключить скидку для товара."></i>
+                        </h2>
+                        <div class="unit" id="discounts"></div>
+                        <h2>
+                            <a href="#">Характеристики</a>
+                            <i class="tooltip fa fa-question-circle" title="Дополнительные характеристики товара, например, объем, цвет, вес, материал, состав, производитель и т.п. Вы можете создать сколько угодно дополнительных характеристик товара с разными типами. Чтобы создать характеристику, от которой зависит цена товара, выберите тип «Список с выбором нескольких значений» и отметьте «Доступен к выбору при заказе» (см. подробнее в модуле «Характеристики»)."></i>
+                        </h2>
+
+
+                        <form>
+                            <div class="was-validated">
+                                <div class="form-row align-items-center">
+                                    <div class="col-auto my-1" class="unit shop_param" id="param3">
+                                        <div class="infofield"><label class="mr-sm-2" for="inlineFormCustomSelect">Тип
+                                                сделки</label>
+
+                                            <i class="tooltip fa fa-question-circle" title="Группа полей, определенных в части «Характеристики». Для характеристики с типом «список с выбором нескольких значений» можно задать несколько цен для товара. Для одного товара можно выбрать несколько характеристик, влияющих на цену."></i>
+                                        </div>
+
+                                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="param3">
+                                            <!--<option value="" selected="">Нет</option>-->
+                                            <option value="16">Продажа</option>
+                                            <option value="2">Покупка</option>
+                                            <option value="22">Аренда</option>
+                                            <option value="23">Мена</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-auto my-1" class="unit shop_param" id="param2">
+                                        <div class="infofield"><label class="mr-sm-2" for="inlineFormCustomSelect">Тип
+                                                недвижимости</label>
+
+                                            <i class="tooltip fa fa-question-circle" title="Группа полей, определенных в части «Характеристики». Для характеристики с типом «список с выбором нескольких значений» можно задать несколько цен для товара. Для одного товара можно выбрать несколько характеристик, влияющих на цену."></i>
+                                        </div>
+
+                                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="param2">
+                                            <!--<option value="" selected="">Нет</option>-->
+                                            <option value="1">Квартира</option>
+                                            <option value="24">Дом</option>
+                                            <option value="25">Участок</option>
+                                            <option value="26">Дача</option>
+                                            <option value="27">Новостройка</option>
+                                            <option value="28">Комната</option>
+                                            <option value="2126">Коммерческая недвижимость</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-auto my-1" class="unit shop_param" id="param4">
+                                        <div class="infofield"><label class="mr-sm-2" for="inlineFormCustomSelect">Город</label>
+
+                                            <i class="tooltip fa fa-question-circle" title="Группа полей, определенных в части «Характеристики». Для характеристики с типом «список с выбором нескольких значений» можно задать несколько цен для товара. Для одного товара можно выбрать несколько характеристик, влияющих на цену."></i>
+                                        </div>
+
+                                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="param4">
+                                            <!--option value="" selected="">Нет</option>-->
+                                            <option value="17">Нижний Тагил</option>
+                                            <option value="18">Екатеринбург</option>
+                                            <option value="15">Москва</option>
+
+                                            <option value="732">Николо-Павловское село</option>
+                                            <option value="730">Новоасбест посёлок</option>
+                                            <option value="729">Петрокаменское село</option>
+                                            <option value="728">Санкт-Петербург</option>
+                                            <option value="2125">Черноисточинск посёлок</option>
+                                            <option value="731">Шумиха деревня</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-auto my-1" class="unit shop_param" id="param14">
+                                        <div class="infofield"><label class="mr-sm-2" for="inlineFormCustomSelect">Район</label>
+
+                                            <i class="tooltip fa fa-question-circle" title="Группа полей, определенных в части «Характеристики». Для характеристики с типом «список с выбором нескольких значений» можно задать несколько цен для товара. Для одного товара можно выбрать несколько характеристик, влияющих на цену."></i>
+                                        </div>
+                                        <form class="was-validated">
+                                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="param14"
+                                                required>
+                                                <option value="">Нет</option>
+                                                <option value="29">Дзержинский</option>
+                                                <option value="30">Ленинский</option>
+                                                <option value="31">Тагилстроевский</option>
+                                            </select>
+                                        </form>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                    </div>
+                    </form>
+
+
+
+
+
+
+
+                    <div class="unit shop_param" id="param21">
+                        <div class="infofield">
+                            Улица
+                            <i class="tooltip fa fa-question-circle" title="Группа полей, определенных в части «Характеристики». Для характеристики с типом «список с выбором нескольких значений» можно задать несколько цен для товара. Для одного товара можно выбрать несколько характеристик, влияющих на цену."></i>
+                        </div>
+                        <select name="param21">
+                            <option value="" selected="">Нет</option>
+                            <option value="1429">1 Мая Улица</option>
+                            <option value="1430">1-й Проезд</option>
+                            <option value="1431">1-я Линия</option>
+                            <option value="1432">2-й Проезд</option>
+                            <option value="1433">23 Партсъезда Улица</option>
+                            <option value="1434">3-й Проезд</option>
+                            <option value="1435">4-й Проезд</option>
+                            <option value="1436">5-й Проезд</option>
+                            <option value="1437">7 Ноября Улица</option>
+                            <option value="1438">7-й Квартал</option>
+                            <option value="1439">9 Января Улица</option>
+                            <option value="1440">Авангардная Улица</option>
+                            <option value="1441">Августовская Улица</option>
+                            <option value="1442">Авиационная Улица</option>
+                            <option value="1443">Автомобилистов Улица</option>
+                            <option value="1444">Аганичева Улица</option>
+                            <option value="1445">Азиатская Улица</option>
+                            <option value="1446">Азовская Улица</option>
+                            <option value="1447">Айвазовского Улица</option>
+                            <option value="1448">Академика Бардина Улица</option>
+                            <option value="1449">Академика Павлова Улица</option>
+                            <option value="1450">Академика Поленова Улица</option>
+                            <option value="1451">Алапаевская Улица</option>
+                            <option value="1452">Александра Матросова Улица</option>
+                            <option value="1453">Александровская Улица</option>
+                            <option value="1454">Алмазная Улица</option>
+                            <option value="1455">Алтайская Улица</option>
+                            <option value="1456">Алябьева Улица</option>
+                            <option value="1457">Амурская Улица</option>
+                            <option value="1458">Ангарская Улица</option>
+                            <option value="1459">Апрельская 2-я Улица</option>
+                            <option value="1460">Апрельская Улица</option>
+                            <option value="1461">Артема Улица</option>
+                            <option value="1462">Асбестовский Переулок</option>
+                            <option value="1463">Бабушкина Улица</option>
+                            <option value="1464">Бажова Улица</option>
+                            <option value="1465">Байдукова Улица</option>
+                            <option value="1466">Байкальская Улица</option>
+                            <option value="1467">Балакинская Улица</option>
+                            <option value="1468">Балакирева Улица</option>
+                            <option value="1469">Баранчинская Улица</option>
+                            <option value="1470">Барнаульская Улица</option>
+                            <option value="1471">Баррикадная Улица</option>
+                            <option value="1472">Басова Улица</option>
+                            <option value="1473">Бауманская Улица</option>
+                            <option value="1474">Безымянный Переулок</option>
+                            <option value="1475">Белинского Улица</option>
+                            <option value="1476">Белогорская Улица</option>
+                            <option value="1477">Белявского Улица</option>
+                            <option value="1478">Береговая Улица</option>
+                            <option value="1479">Береговая-Краснокаменская Улица</option>
+                            <option value="1480">Береговая-Ударная Улица</option>
+                            <option value="1481">Березовая Улица</option>
+                            <option value="1482">Бирюзовая Улица</option>
+                            <option value="1483">Бис Улица</option>
+                            <option value="1484">Бобкова Улица</option>
+                            <option value="1485">Болгарская Улица</option>
+                            <option value="1486">Болотникова Улица</option>
+                            <option value="1487">Больничный Проезд</option>
+                            <option value="1488">Большая Гальянская Улица</option>
+                            <option value="1489">Большая Кооперативная Улица</option>
+                            <option value="1490">Большевистская Улица</option>
+                            <option value="1491">Бондина Улица</option>
+                            <option value="1492">Боровая Улица</option>
+                            <option value="1493">Борцов Революции Улица</option>
+                            <option value="1494">Ботаническая Улица</option>
+                            <option value="1495">Братская Улица</option>
+                            <option value="1496">Братьев Худояровых Улица</option>
+                            <option value="1497">Бригадная Улица</option>
+                            <option value="1498">Брусничная Улица</option>
+                            <option value="1499">Буденного Улица</option>
+                            <option value="1500">Бурщиков Улица</option>
+                            <option value="1501">Быкова Улица</option>
+                            <option value="1502">Вагонзавод Станция</option>
+                            <option value="1503">Вагоностроителей Проспект</option>
+                            <option value="1504">Валегинская Улица</option>
+                            <option value="1505">Вальцовщиков Улица</option>
+                            <option value="1506">Васильковая Улица</option>
+                            <option value="1507">Ватутина Улица</option>
+                            <option value="1508">Верескова Улица</option>
+                            <option value="1509">Вересовая Улица</option>
+                            <option value="1510">Верхняя Улица</option>
+                            <option value="1511">Верхняя Черепановых Улица</option>
+                            <option value="1512">Весенняя Улица</option>
+                            <option value="1513">Ветеринарная Улица</option>
+                            <option value="1514">Вечерняя Улица</option>
+                            <option value="1515">Вешняя Улица</option>
+                            <option value="1516">Висимская Улица</option>
+                            <option value="1517">Вишневая Улица</option>
+                            <option value="1518">Вогульская Улица</option>
+                            <option value="1519">Водная Улица</option>
+                            <option value="1520">Водопроводная Улица</option>
+                            <option value="1521">Воеводина Улица</option>
+                            <option value="1522">Войкова Улица</option>
+                            <option value="1523">Волгоградская Улица</option>
+                            <option value="1524">Волгодонская Улица</option>
+                            <option value="1525">Волжская Улица</option>
+                            <option value="1526">Володарского Улица</option>
+                            <option value="1527">Волочаевская Улица</option>
+                            <option value="1528">Восстания Улица</option>
+                            <option value="1529">Восточная Улица</option>
+                            <option value="1530">Восточное Шоссе</option>
+                            <option value="1531">Восточный Проезд</option>
+                            <option value="1532">Всеобуча Улица</option>
+                            <option value="1533">Выйская Улица</option>
+                            <option value="1534">Высокогорская Улица</option>
+                            <option value="1535">Высотная Улица</option>
+                            <option value="1536">Вязовская Улица</option>
+                            <option value="1537">Гагарина Улица</option>
+                            <option value="1538">Гаева Улица</option>
+                            <option value="1539">Газетная Улица</option>
+                            <option value="1540">Газовая Улица</option>
+                            <option value="1541">Гайдара Улица</option>
+                            <option value="1542">Гальяновская Станция</option>
+                            <option value="1543">Гастелло Улица</option>
+                            <option value="1544">Гвардейская Улица</option>
+                            <option value="1545">Геодезистов Проезд</option>
+                            <option value="1546">Геологов Проезд</option>
+                            <option value="1547">Геологов Улица</option>
+                            <option value="1548">Героев Труда Улица</option>
+                            <option value="1549">Глеба Успенского Улица</option>
+                            <option value="1550">Глинки Улица</option>
+                            <option value="1551">Гоголя Улица</option>
+                            <option value="1552">Голокаменская Улица</option>
+                            <option value="1553">Голубая Улица</option>
+                            <option value="1554">Голый Камень Станция</option>
+                            <option value="1555">Гончарная Улица</option>
+                            <option value="1556">Горбуново Станция</option>
+                            <option value="1557">Горбуновская Улица</option>
+                            <option value="1558">Горбуновский торфяник Улица</option>
+                            <option value="1559">Горная Улица</option>
+                            <option value="1560">Горняка Улица</option>
+                            <option value="1561">Городская Улица</option>
+                            <option value="1562">Горошникова Улица</option>
+                            <option value="1563">Госпитальная Улица</option>
+                            <option value="1564">Гражданская Улица</option>
+                            <option value="1565">Гранитная Улица</option>
+                            <option value="1566">Грибная Улица</option>
+                            <option value="1567">Грибоедова Улица</option>
+                            <option value="1568">Грузчиков Улица</option>
+                            <option value="1569">Грунтовая Улица</option>
+                            <option value="1570">Дальневосточная Улица</option>
+                            <option value="1571">Дальняя Улица</option>
+                            <option value="1572">Дарвина Улица</option>
+                            <option value="1573">Дачная Улица</option>
+                            <option value="1574">Декабристов Проезд</option>
+                            <option value="1575">Декабристов Улица</option>
+                            <option value="1576">Декабрьская 2-я Улица</option>
+                            <option value="1577">Декабрьская 3-я Улица</option>
+                            <option value="1578">Декабрьская 4-я Улица</option>
+                            <option value="1579">Декабрьская Улица</option>
+                            <option value="1580">Деповская Улица</option>
+                            <option value="1581">Джамбула Улица</option>
+                            <option value="1582">Джапаридзе Улица</option>
+                            <option value="1583">Дзержинского Проспект</option>
+                            <option value="1584">Димитрова Улица</option>
+                            <option value="1585">Днепровская Улица</option>
+                            <option value="1586">Добровольцев Улица</option>
+                            <option value="1587">Добролюбова Переулок</option>
+                            <option value="1588">Добролюбова Улица</option>
+                            <option value="1589">Докучаева Улица</option>
+                            <option value="1590">Долинная Улица</option>
+                            <option value="1591">Доменная Улица</option>
+                            <option value="1592">Дружбы Улица</option>
+                            <option value="1593">Дружинина Улица</option>
+                            <option value="1594">Дубовая Улица</option>
+                            <option value="1595">Дунайская Улица</option>
+                            <option value="1596">Евстюнинская Улица</option>
+                            <option value="1597">Ежовая Улица</option>
+                            <option value="1598">Еланская Улица</option>
+                            <option value="1599">Ельничная Улица</option>
+                            <option value="1600">Енисейская Улица</option>
+                            <option value="1601">Ермака Улица</option>
+                            <option value="1602">Жданова Улица</option>
+                            <option value="1603">Железнодорожная Улица</option>
+                            <option value="1604">Железняка Улица</option>
+                            <option value="1605">Железорудная Улица</option>
+                            <option value="1606">Жуковского Улица</option>
+                            <option value="1607">Забойщиков Улица</option>
+                            <option value="1608">Завода Механик Переулок</option>
+                            <option value="1609">Заводская Улица</option>
+                            <option value="1610">Завокзальная Улица</option>
+                            <option value="1611">Завязовская Станция</option>
+                            <option value="1612">Загородная Улица</option>
+                            <option value="1613">Заозерная Улица</option>
+                            <option value="1614">Западная Улица</option>
+                            <option value="1615">Запорожская Улица</option>
+                            <option value="1616">Запрудная 1-я Улица</option>
+                            <option value="1617">Запрудная 2-я Улица</option>
+                            <option value="1618">Запрудная 3-я Улица</option>
+                            <option value="1619">Запрудная 4-я Улица</option>
+                            <option value="1620">Запрудный Проезд</option>
+                            <option value="1621">Заречная Улица</option>
+                            <option value="1622">Зари Улица</option>
+                            <option value="1623">Застройщиков Улица</option>
+                            <option value="1624">Захарова Улица</option>
+                            <option value="1625">Звеньевая Улица</option>
+                            <option value="1626">Зеленая Улица</option>
+                            <option value="1627">Зеленстроевская Улица</option>
+                            <option value="1628">Зеленстроевский Проезд</option>
+                            <option value="1629">Зеленый Тупик</option>
+                            <option value="1630">Землячки Улица</option>
+                            <option value="1631">Зерновая Улица</option>
+                            <option value="1632">Зимняя Улица</option>
+                            <option value="1633">Знаменская Улица</option>
+                            <option value="1634">Зои Космодемьянской Улица</option>
+                            <option value="1635">Ивовая Улица</option>
+                            <option value="1636">Избирателей Улица</option>
+                            <option value="1637">Известковая Улица</option>
+                            <option value="1638">Известковый карьер Рабочий поселок</option>
+                            <option value="1639">Изумрудная Улица</option>
+                            <option value="1640">Ильича Улица</option>
+                            <option value="1641">Индивидуальная Улица</option>
+                            <option value="1642">Индустриальная Улица</option>
+                            <option value="1643">Иркутская Улица</option>
+                            <option value="1644">Исинская Улица</option>
+                            <option value="1645">Калинина Улица</option>
+                            <option value="1646">Калиновая Улица</option>
+                            <option value="1647">Калужская Улица</option>
+                            <option value="1648">Каменная Улица</option>
+                            <option value="1649">Камнетесов Улица</option>
+                            <option value="1650">Камская Улица</option>
+                            <option value="1651">Камышовая Улица</option>
+                            <option value="1652">Карбышева Улица</option>
+                            <option value="1653">Карла Либкнехта Улица</option>
+                            <option value="1654">Карла Маркса Улица</option>
+                            <option value="1655">Карпинского Улица</option>
+                            <option value="1656">Каспийская Улица</option>
+                            <option value="1657">Каховская Улица</option>
+                            <option value="1658">Квартальная Улица</option>
+                            <option value="1659">Кварцевая Улица</option>
+                            <option value="1660">Кедровая Улица</option>
+                            <option value="1661">Кедун-Быково Станция</option>
+                            <option value="1662">Керамиков Улица</option>
+                            <option value="1663">Керченская Улица</option>
+                            <option value="1664">Киевская Улица</option>
+                            <option value="1665">Кизеловская Улица</option>
+                            <option value="1666">Кирова Улица</option>
+                            <option value="1667">Кирпичная Улица</option>
+                            <option value="1668">Клары Цеткин Улица</option>
+                            <option value="1669">Кленовая Улица</option>
+                            <option value="1670">Клубная Улица</option>
+                            <option value="1671">Ключевская Улица</option>
+                            <option value="1672">Ключики Новые Улица</option>
+                            <option value="1673">Ключики Старые Улица</option>
+                            <option value="1674">Коксовая Улица</option>
+                            <option value="1675">Коллективная Улица</option>
+                            <option value="1676">Колхозная Улица</option>
+                            <option value="1677">Кольцова Улица</option>
+                            <option value="1678">Коминтерна Улица</option>
+                            <option value="1679">Коммунальная Улица</option>
+                            <option value="1680">Коммуны Улица</option>
+                            <option value="1681">Компасная Улица</option>
+                            <option value="1682">Комсомольская Улица</option>
+                            <option value="1683">Кондукторская Улица</option>
+                            <option value="1684">Кондукторский Проезд</option>
+                            <option value="1685">Конечная Улица</option>
+                            <option value="1686">Константина Заслонова Улица</option>
+                            <option value="1687">Константина Пылаева Улица</option>
+                            <option value="1688">Кооперативная Улица</option>
+                            <option value="1689">Коперника Улица</option>
+                            <option value="1690">Копровая Улица</option>
+                            <option value="1691">Корабельный Переулок</option>
+                            <option value="1692">Короленко Улица</option>
+                            <option value="1693">Короткая Улица</option>
+                            <option value="1694">Космическая Улица</option>
+                            <option value="1695">Космонавтов Улица</option>
+                            <option value="1696">Котовского Улица</option>
+                            <option value="1697">Крайняя Улица</option>
+                            <option value="1698">Красина Улица</option>
+                            <option value="1699">Красная Улица</option>
+                            <option value="1700">Красноармейская Улица</option>
+                            <option value="1701">Красногвардейская Улица</option>
+                            <option value="1702">Красногорская Улица</option>
+                            <option value="1703">Краснодонская Улица</option>
+                            <option value="1704">Краснознаменная Улица</option>
+                            <option value="1705">Красной Звезды Улица</option>
+                            <option value="1706">Краснокаменская Улица</option>
+                            <option value="1707">Краснофлотская Улица</option>
+                            <option value="1708">Красноярская Улица</option>
+                            <option value="1709">Красных Зорь Улица</option>
+                            <option value="1710">Красных Партизан Улица</option>
+                            <option value="1711">Круговая Улица</option>
+                            <option value="1712">Крупской Улица</option>
+                            <option value="1713">Крылова Улица</option>
+                            <option value="1714">Крымская Улица</option>
+                            <option value="1715">Кузбасская Улица</option>
+                            <option value="1716">Кузнецкого Улица</option>
+                            <option value="1717">Кузнечная Улица</option>
+                            <option value="1718">Куйбышева Улица</option>
+                            <option value="1719">Кулибина Проезд</option>
+                            <option value="1720">Кулибина Улица</option>
+                            <option value="1721">Культуры Улица</option>
+                            <option value="1722">Курганская Улица</option>
+                            <option value="1723">Курортная Улица</option>
+                            <option value="1724">Курская Улица</option>
+                            <option value="1725">Кутузова Улица</option>
+                            <option value="1726">Кушвинская Улица</option>
+                            <option value="1727">Лазо Улица</option>
+                            <option value="1728">Лайская Улица</option>
+                            <option value="1729">Лайский Тракт</option>
+                            <option value="1730">Лебяжинская Улица</option>
+                            <option value="1731">Ленина Проспект</option>
+                            <option value="1732">Ленина Улица</option>
+                            <option value="1733">Ленинградская Улица</option>
+                            <option value="1734">Ленинградский Проспект</option>
+                            <option value="1735">Ленская Улица</option>
+                            <option value="1736">Лермонтова Улица</option>
+                            <option value="1737">Лесная Улица</option>
+                            <option value="1738">Лесной Проезд</option>
+                            <option value="1739">Лесорубов Улица</option>
+                            <option value="1740">Летная Улица</option>
+                            <option value="1741">Линейный Проезд</option>
+                            <option value="1742">Липовый Тракт</option>
+                            <option value="1743">Лисогорская Улица</option>
+                            <option value="1744">Литейная Улица</option>
+                            <option value="1745">Литейщиков Улица</option>
+                            <option value="1746">Лодочная Улица</option>
+                            <option value="1747">Лозовая Улица</option>
+                            <option value="1748">Локомотивная Улица</option>
+                            <option value="1749">Локомотивный Проезд</option>
+                            <option value="1750">Ломоносова Улица</option>
+                            <option value="1751">Луговая Улица</option>
+                            <option value="1752">Луначарского Улица</option>
+                            <option value="1753">Лучевая Улица</option>
+                            <option value="1754">Льва Толстого Улица</option>
+                            <option value="1755">Магистральная Улица</option>
+                            <option value="1756">Магнитная Улица</option>
+                            <option value="1757">Майская Улица</option>
+                            <option value="1758">Максарева Улица</option>
+                            <option value="1759">Максима Горького Улица</option>
+                            <option value="1760">Малахитовая Улица</option>
+                            <option value="1761">Малая Улица</option>
+                            <option value="1762">Малая Кооперативная Улица</option>
+                            <option value="1763">Малиновая Улица</option>
+                            <option value="1764">Мало-Гальянская Улица</option>
+                            <option value="1765">Мало-Коммунальная Улица</option>
+                            <option value="1766">Малокраснокаменская Улица</option>
+                            <option value="1767">Малый Переулок</option>
+                            <option value="1768">Малышева Улица</option>
+                            <option value="1769">Мамина-Сибиряка Улица</option>
+                            <option value="1770">Мартеновская Улица</option>
+                            <option value="1771">Машинистов Улица</option>
+                            <option value="1772">Машиностроителей Улица</option>
+                            <option value="1773">Маяковского Улица</option>
+                            <option value="1774">Медная Улица</option>
+                            <option value="1775">Межевая Улица</option>
+                            <option value="1776">Мельникова Улица</option>
+                            <option value="1777">Менделеева Проезд</option>
+                            <option value="1778">Менделеева Улица</option>
+                            <option value="1779">Металлистов Улица</option>
+                            <option value="1780">Металлургическая Улица</option>
+                            <option value="1781">Металлургов Улица</option>
+                            <option value="1782">Механизаторов Улица</option>
+                            <option value="1783">Механическая Улица</option>
+                            <option value="1784">Мечникова Улица</option>
+                            <option value="1785">Минина Улица</option>
+                            <option value="1786">Минская Улица</option>
+                            <option value="1787">Мира Проспект</option>
+                            <option value="1788">Мира Улица</option>
+                            <option value="1789">Мичурина Улица</option>
+                            <option value="1790">Молодежная Улица</option>
+                            <option value="1791">Монтажников Улица</option>
+                            <option value="1792">Московская Улица</option>
+                            <option value="1793">Мостовая Улица</option>
+                            <option value="1794">Мотина Улица</option>
+                            <option value="1795">Моховая Улица</option>
+                            <option value="1796">Моховой Проезд</option>
+                            <option value="1797">Мраморная Улица</option>
+                            <option value="1798">Муринская Улица</option>
+                            <option value="1799">Мурманская Улица</option>
+                            <option value="1800">Набережная Улица</option>
+                            <option value="1801">Нагорная Улица</option>
+                            <option value="1802">Напольная Улица</option>
+                            <option value="1803">Народного Фронта Улица</option>
+                            <option value="1804">Народной воли Улица</option>
+                            <option value="1805">Нахимова Улица</option>
+                            <option value="1806">Невьянский Переулок</option>
+                            <option value="1807">Негасимая Улица</option>
+                            <option value="1808">Неделина Улица</option>
+                            <option value="1809">Незаметный Переулок</option>
+                            <option value="1810">Некрасова Улица</option>
+                            <option value="1811">Нефтебазы Улица</option>
+                            <option value="1812">Нефтебазы Рабочий поселок</option>
+                            <option value="1813">Нижняя Черепановых Улица</option>
+                            <option value="1814">Низовая Улица</option>
+                            <option value="1815">Никитина Улица</option>
+                            <option value="1816">Новаторов Улица</option>
+                            <option value="1817">Новая Улица</option>
+                            <option value="1818">Новоселов Улица</option>
+                            <option value="1819">Новосельская Улица</option>
+                            <option value="1820">Новострой Улица</option>
+                            <option value="1821">Новый Переулок</option>
+                            <option value="1822">Носова Улица</option>
+                            <option value="1823">НТГРЭС Рабочий поселок</option>
+                            <option value="1824">Обороны Улица</option>
+                            <option value="1825">Обсерваторская Улица</option>
+                            <option value="1826">Огаркова Улица</option>
+                            <option value="1827">Огнеупорная Улица</option>
+                            <option value="1828">Огородная Улица</option>
+                            <option value="1829">Окраинная Улица</option>
+                            <option value="1830">Октябрьская Улица</option>
+                            <option value="1831">Октябрьский Проспект</option>
+                            <option value="1832">Октябрьской Революции Улица</option>
+                            <option value="1833">Окунева Улица</option>
+                            <option value="1834">Олега Кошевого Улица</option>
+                            <option value="1835">Ольховская Улица</option>
+                            <option value="1836">Омская Улица</option>
+                            <option value="1837">Оплетина Улица</option>
+                            <option value="1838">Орджоникидзе Улица</option>
+                            <option value="1839">Осенняя Улица</option>
+                            <option value="1840">Осипенко Улица</option>
+                            <option value="1841">Островского Улица</option>
+                            <option value="1842">Отдыха Улица</option>
+                            <option value="1843">Отечественная Улица</option>
+                            <option value="1844">Охотников Улица</option>
+                            <option value="1845">Павлика Морозова Улица</option>
+                            <option value="1846">Панфилова Улица</option>
+                            <option value="1847">Папанина Улица</option>
+                            <option value="1848">Парашютная Улица</option>
+                            <option value="1849">Парижской Коммуны Улица</option>
+                            <option value="1850">Парковая Улица</option>
+                            <option value="1851">Паровозная Улица</option>
+                            <option value="1852">Пароходная Улица</option>
+                            <option value="1853">Партизанская Улица</option>
+                            <option value="1854">Пархоменко Улица</option>
+                            <option value="1855">Патона Улица</option>
+                            <option value="1856">Патриотов Улица</option>
+                            <option value="1857">Первомайская Улица</option>
+                            <option value="1858">Переходная Улица</option>
+                            <option value="1859">Пермская Улица</option>
+                            <option value="1860">Перова Улица</option>
+                            <option value="1861">Песчаная Улица</option>
+                            <option value="1862">Песчаный Проезд</option>
+                            <option value="1863">Песчаный Карьер Промышленная зона</option>
+                            <option value="1864">Петрокаменская Улица</option>
+                            <option value="1865">Печатников Улица</option>
+                            <option value="1866">Пионерская Улица</option>
+                            <option value="1867">Пиритная Улица</option>
+                            <option value="1868">Пирогова Улица</option>
+                            <option value="1869">Писарева Улица</option>
+                            <option value="1870">Питомник Горзеленхоза Улица</option>
+                            <option value="1871">Пихтовая Улица</option>
+                            <option value="1872">Пихтовый Переулок</option>
+                            <option value="1873">Площадная Улица</option>
+                            <option value="1874">Победы Улица</option>
+                            <option value="1875">Подгорная Улица</option>
+                            <option value="1876">Подсобная Улица</option>
+                            <option value="1877">Подсобный Переулок</option>
+                            <option value="1878">Подстанция 53 Территория</option>
+                            <option value="1879">Пожарная Улица</option>
+                            <option value="1880">Пожарского Улица</option>
+                            <option value="1881">Полевая Улица</option>
+                            <option value="1882">Ползунова Улица</option>
+                            <option value="1883">Полтавская Улица</option>
+                            <option value="1884">Полуденская Улица</option>
+                            <option value="1885">Полюсная Улица</option>
+                            <option value="1886">Полюсный Переулок</option>
+                            <option value="1887">Полярная Улица</option>
+                            <option value="1888">Поперечная Улица</option>
+                            <option value="1889">Попова Улица</option>
+                            <option value="1890">Поселковая Улица</option>
+                            <option value="1891">Почтовая Улица</option>
+                            <option value="1892">Почтовый Проезд</option>
+                            <option value="1893">Правды Улица</option>
+                            <option value="1894">Прибрежный Переулок</option>
+                            <option value="1895">Пригородная Улица</option>
+                            <option value="1896">Приисковая Улица</option>
+                            <option value="1897">Пришвина Улица</option>
+                            <option value="1898">Продснаба Улица</option>
+                            <option value="1899">Продснаба Рабочий поселок</option>
+                            <option value="1900">Проезжая Улица</option>
+                            <option value="1901">Прокатчиков Улица</option>
+                            <option value="1902">Пролетарская Улица</option>
+                            <option value="1903">Промышленный Переулок</option>
+                            <option value="1904">Проселочная Улица</option>
+                            <option value="1905">Просторная Улица</option>
+                            <option value="1906">Профсоюзная Улица</option>
+                            <option value="1907">Прохладная Улица</option>
+                            <option value="1908">Проходчиков Улица</option>
+                            <option value="1909">Прудная Улица</option>
+                            <option value="1910">Пугачева Улица</option>
+                            <option value="1911">Путейская Улица</option>
+                            <option value="1912">Пушкина Улица</option>
+                            <option value="1913">Рабкоров Улица</option>
+                            <option value="1914">Рабочая Улица</option>
+                            <option value="1915">Равенства Улица</option>
+                            <option value="1916">Радиальная Улица</option>
+                            <option value="1917">Радистов Улица</option>
+                            <option value="1918">Радистов Проезд</option>
+                            <option value="1919">Радищева Улица</option>
+                            <option value="1920">Радужная Улица</option>
+                            <option value="1921">Радужная 2-я Улица</option>
+                            <option value="1922">Разведчиков Улица</option>
+                            <option value="1923">Ракетная Улица</option>
+                            <option value="1924">Рассветная Улица</option>
+                            <option value="1925">Ремонтный Переулок</option>
+                            <option value="1926">Репина Улица</option>
+                            <option value="1927">Республиканская Улица</option>
+                            <option value="1928">Речная Улица</option>
+                            <option value="1929">Решетникова Улица</option>
+                            <option value="1930">Родниковая Улица</option>
+                            <option value="1931">Розы Люксембург Улица</option>
+                            <option value="1932">Ростовская Улица</option>
+                            <option value="1933">Рудничная Улица</option>
+                            <option value="1934">Рудный Переулок</option>
+                            <option value="1935">Рудянская Улица</option>
+                            <option value="1936">Рудянский Переулок</option>
+                            <option value="1937">Рябиновая Улица</option>
+                            <option value="1938">Садовая Улица</option>
+                            <option value="1939">Садоводов Улица</option>
+                            <option value="1940">Салдинская Улица</option>
+                            <option value="1941">Салтыкова-Щедрина Улица</option>
+                            <option value="1942">Самолетная Улица</option>
+                            <option value="1943">Самотечная Улица</option>
+                            <option value="1944">Самоцветов Улица</option>
+                            <option value="1945">Сан-Донато Станция</option>
+                            <option value="1946">Санаторий Руш Поселок</option>
+                            <option value="1947">Сварщиков Улица</option>
+                            <option value="1948">Свердлова Улица</option>
+                            <option value="1949">Свердловская Улица</option>
+                            <option value="1950">Светлая Улица</option>
+                            <option value="1951">Свободы Улица</option>
+                            <option value="1952">Северная Улица</option>
+                            <option value="1953">Северное Шоссе</option>
+                            <option value="1954">Седова Улица</option>
+                            <option value="1955">Сельская Улица</option>
+                            <option value="1956">Семенова Улица</option>
+                            <option value="1957">Сенная Улица</option>
+                            <option value="1958">Сентябрьская Улица</option>
+                            <option value="1959">Сергея Коровина Улица</option>
+                            <option value="1960">Серебрянский Тракт</option>
+                            <option value="1961">Серная Улица</option>
+                            <option value="1962">Серова Улица</option>
+                            <option value="1963">Сибирская Улица</option>
+                            <option value="1964">Сибирский Переулок</option>
+                            <option value="1965">Сиреневая Улица</option>
+                            <option value="1966">Сланцевая Улица</option>
+                            <option value="1967">Слесарная Улица</option>
+                            <option value="1968">Смелянского Улица</option>
+                            <option value="1969">Смоленская Улица</option>
+                            <option value="1970">СМП-29 Промышленная зона</option>
+                            <option value="1971">Смычка Станция</option>
+                            <option value="1972">Снежная Улица</option>
+                            <option value="1973">Советская Улица</option>
+                            <option value="1974">Советской Армии Улица</option>
+                            <option value="1975">Совхозная Улица</option>
+                            <option value="1976">Солнечная Улица</option>
+                            <option value="1977">Соревнования Улица</option>
+                            <option value="1978">Сортировочная Улица</option>
+                            <option value="1979">Сосновая Улица</option>
+                            <option value="1980">Софьи Ковалевской Улица</option>
+                            <option value="1981">Софьи Перовской Улица</option>
+                            <option value="1982">Союзная Улица</option>
+                            <option value="1983">Спартака Улица</option>
+                            <option value="1984">Спортивная Улица</option>
+                            <option value="1985">Сталеваров Улица</option>
+                            <option value="1986">Сталинградская Улица</option>
+                            <option value="1987">Станционный Переулок</option>
+                            <option value="1988">Старатель Станция</option>
+                            <option value="1989">Старатель Поселок</option>
+                            <option value="1990">Степана Разина Улица</option>
+                            <option value="1991">Степная Улица</option>
+                            <option value="1992">Степной Проезд</option>
+                            <option value="1993">Стрелочников Улица</option>
+                            <option value="1994">Строителей Проспект</option>
+                            <option value="1995">Студеная Улица</option>
+                            <option value="1996">Студенческая Улица</option>
+                            <option value="1997">Субботняя Улица</option>
+                            <option value="1998">Суворова Улица</option>
+                            <option value="1999">Сульфатная Улица</option>
+                            <option value="2000">Сурикова Проезд</option>
+                            <option value="2001">Сурикова Улица</option>
+                            <option value="2002">Сухоложская Улица</option>
+                            <option value="2003">Сцепщиков Улица</option>
+                            <option value="2004">Тагилстроевская Улица</option>
+                            <option value="2005">Тагильская Улица</option>
+                            <option value="2006">Тагильский Тракт</option>
+                            <option value="2007">Таежная Улица</option>
+                            <option value="2008">Танкистов Улица</option>
+                            <option value="2009">Театральная Площадь</option>
+                            <option value="2010">Тельмана Улица</option>
+                            <option value="2011">Тенистая Улица</option>
+                            <option value="2012">Техническая Улица</option>
+                            <option value="2013">Тимирязева Улица</option>
+                            <option value="2014">Тихий Переулок</option>
+                            <option value="2015">Тобольская Улица</option>
+                            <option value="2016">Товарный Двор Улица</option>
+                            <option value="2017">Толмачева Улица</option>
+                            <option value="2018">Торфорезов Улица</option>
+                            <option value="2019">Торфяная Улица</option>
+                            <option value="2020">Тракторная Улица</option>
+                            <option value="2021">Транспортная Улица</option>
+                            <option value="2022">Трикотажников Улица</option>
+                            <option value="2023">Тропинина Улица</option>
+                            <option value="2024">Трубная Улица</option>
+                            <option value="2025">Труда Улица</option>
+                            <option value="2026">Трудовая Улица</option>
+                            <option value="2027">Тупиковая Улица</option>
+                            <option value="2028">Тургенева Улица</option>
+                            <option value="2029">Туристов Улица</option>
+                            <option value="2030">Туристов Переулок</option>
+                            <option value="2031">Тыловая Улица</option>
+                            <option value="2032">Угловая Улица</option>
+                            <option value="2033">Угольная Улица</option>
+                            <option value="2034">Ударная Улица</option>
+                            <option value="2035">Удовенко Улица</option>
+                            <option value="2036">Узкая Улица</option>
+                            <option value="2037">Узкий Проезд</option>
+                            <option value="2038">Украинская Улица</option>
+                            <option value="2039">Ульянова Переулок</option>
+                            <option value="2040">Ульяновская Улица</option>
+                            <option value="2041">Ульяны Громовой Улица</option>
+                            <option value="2042">Уральская Улица</option>
+                            <option value="2043">Уральский Проспект</option>
+                            <option value="2044">Урицкого Улица</option>
+                            <option value="2045">Урожайная Улица</option>
+                            <option value="2046">Учебная Улица</option>
+                            <option value="2047">Учительская Улица</option>
+                            <option value="2048">Ушинского Улица</option>
+                            <option value="2049">Уютная Улица</option>
+                            <option value="2050">Фабричная Улица</option>
+                            <option value="2051">Федорова Улица</option>
+                            <option value="2052">Фестивальная Улица</option>
+                            <option value="2053">Физкультурная Улица</option>
+                            <option value="2054">Финансовый Переулок</option>
+                            <option value="2055">Фотеево 1-е Улица</option>
+                            <option value="2056">Фотеево 2-е Улица</option>
+                            <option value="2057">Фотеево-1 Поселок</option>
+                            <option value="2058">Фотеево-2 Поселок</option>
+                            <option value="2059">Фотеевская Улица</option>
+                            <option value="2060">Фрезеровщиков Улица</option>
+                            <option value="2061">Фронтовая Улица</option>
+                            <option value="2062">Фрунзе Улица</option>
+                            <option value="2063">Халтурина Улица</option>
+                            <option value="2064">Хвойная Улица</option>
+                            <option value="2065">Хвойный Переулок</option>
+                            <option value="2066">Химическая Улица</option>
+                            <option value="2067">Хмельницкого Улица</option>
+                            <option value="2068">Холкина Улица</option>
+                            <option value="2069">Хохрякова Улица</option>
+                            <option value="2070">Хрустальная Улица</option>
+                            <option value="2071">Цветочная Улица</option>
+                            <option value="2072">Цементная Улица</option>
+                            <option value="2073">Центральная Улица</option>
+                            <option value="2074">Центральный Переулок</option>
+                            <option value="2075">Циолковского Улица</option>
+                            <option value="2076">Чайкиной Улица</option>
+                            <option value="2077">Чайковского Улица</option>
+                            <option value="2078">Чапаева Улица</option>
+                            <option value="2079">Чаплыгина Улица</option>
+                            <option value="2080">Челюскинцев Улица</option>
+                            <option value="2081">Челябинская Улица</option>
+                            <option value="2082">Черемуховая Улица</option>
+                            <option value="2083">Черемшанка Поселок</option>
+                            <option value="2084">Черемшанская Улица</option>
+                            <option value="2085">Черемшанская Станция</option>
+                            <option value="2086">Черноисточинский Тракт</option>
+                            <option value="2087">Черноисточинское Шоссе</option>
+                            <option value="2088">Черноморская Улица</option>
+                            <option value="2089">Черных Улица</option>
+                            <option value="2090">Чернышевского Улица</option>
+                            <option value="2091">Черняховского Улица</option>
+                            <option value="2092">Чехова Проезд</option>
+                            <option value="2093">Чехова Улица</option>
+                            <option value="2094">Чигорина Улица</option>
+                            <option value="2095">Чкалова Улица</option>
+                            <option value="2096">Чусовская Улица</option>
+                            <option value="2097">Шамотная Улица</option>
+                            <option value="2098">Шаумяна Улица</option>
+                            <option value="2099">Шахтеров Улица</option>
+                            <option value="2100">Шевченко Улица</option>
+                            <option value="2101">Шефская Улица</option>
+                            <option value="2102">Шиловская Улица</option>
+                            <option value="2103">Широкая Улица</option>
+                            <option value="2104">Шиферная Улица</option>
+                            <option value="2105">Школьный Переулок</option>
+                            <option value="2106">Шламовая Улица</option>
+                            <option value="2107">Шмидта Улица</option>
+                            <option value="2108">Штурмовая Улица</option>
+                            <option value="2109">Щедрина Улица</option>
+                            <option value="2110">Щорса Улица</option>
+                            <option value="2111">Электриков Улица</option>
+                            <option value="2112">Энгельса Улица</option>
+                            <option value="2113">Энергетиков Улица</option>
+                            <option value="2114">Энтузиастов Улица</option>
+                            <option value="2115">Эстакадная Улица</option>
+                            <option value="2116">Юбилейная Улица</option>
+                            <option value="2117">Южная Улица</option>
+                            <option value="2118">Юннатов Улица</option>
+                            <option value="2119">Юности Улица</option>
+                            <option value="2120">Яблочкова Улица</option>
+                            <option value="2121">Ягодная Улица</option>
+                            <option value="2122">Янтарная Улица</option>
+                            <option value="2123">Ярославская Улица</option>
+                            <option value="2124">Ясная Улица</option>
+                        </select>
+                    </div>
+                    <div class="unit shop_param" id="param18">
+                        <div class="infofield">
+                            Номер дома
+                            <i class="tooltip fa fa-question-circle" title="Группа полей, определенных в части «Характеристики». Для характеристики с типом «список с выбором нескольких значений» можно задать несколько цен для товара. Для одного товара можно выбрать несколько характеристик, влияющих на цену."></i>
+                        </div>
+                        <input type="text" name="param18" value="" />
+                    </div>
+                    <div class="unit shop_param" id="param15">
+                        <div class="infofield">
+                            Номер подъезда
+                            <i class="tooltip fa fa-question-circle" title="Группа полей, определенных в части «Характеристики». Для характеристики с типом «список с выбором нескольких значений» можно задать несколько цен для товара. Для одного товара можно выбрать несколько характеристик, влияющих на цену."></i>
+                        </div>
+                        <input type="text" name="param15" value="" />
+                    </div>
+                    <div class="unit shop_param" id="param16">
+                        <div class="infofield">
+                            Номер квартиры
+                            <i class="tooltip fa fa-question-circle" title="Группа полей, определенных в части «Характеристики». Для характеристики с типом «список с выбором нескольких значений» можно задать несколько цен для товара. Для одного товара можно выбрать несколько характеристик, влияющих на цену."></i>
+                        </div>
+                        <input type="text" name="param16" value="" />
+                    </div>
+                    <div class="unit shop_param" id="param6">
+                        <div class="infofield">
+                            Всего этажей
+                            <i class="tooltip fa fa-question-circle" title="Группа полей, определенных в части «Характеристики». Для характеристики с типом «список с выбором нескольких значений» можно задать несколько цен для товара. Для одного товара можно выбрать несколько характеристик, влияющих на цену."></i>
+                        </div>
+                        <input type="text" name="param6" value="" />
+                    </div>
+                    <div class="unit shop_param" id="param5">
+                        <div class="infofield">
+                            Этаж
+                            <i class="tooltip fa fa-question-circle" title="Группа полей, определенных в части «Характеристики». Для характеристики с типом «список с выбором нескольких значений» можно задать несколько цен для товара. Для одного товара можно выбрать несколько характеристик, влияющих на цену."></i>
+                        </div>
+                        <input type="text" class="number" name="param5" value="0" />
+                    </div>
+                    <div class="unit shop_param" id="param11">
+                        <div class="infofield">
+                            Площадь
+                            <i class="tooltip fa fa-question-circle" title="Группа полей, определенных в части «Характеристики». Для характеристики с типом «список с выбором нескольких значений» можно задать несколько цен для товара. Для одного товара можно выбрать несколько характеристик, влияющих на цену."></i>
+                        </div>
+                        <input type="text" class="number" name="param11" value="0" />
+                    </div>
+                    <div class="unit shop_param" id="param10">
+                        <div class="infofield">
+                            Площадь кухни
+                            <i class="tooltip fa fa-question-circle" title="Группа полей, определенных в части «Характеристики». Для характеристики с типом «список с выбором нескольких значений» можно задать несколько цен для товара. Для одного товара можно выбрать несколько характеристик, влияющих на цену."></i>
+                        </div>
+                        <input type="text" name="param10" value="" />
+                    </div>
+                    <div class="unit shop_param" id="param12">
+                        <div class="infofield">
+                            Комнат
+                            <i class="tooltip fa fa-question-circle" title="Группа полей, определенных в части «Характеристики». Для характеристики с типом «список с выбором нескольких значений» можно задать несколько цен для товара. Для одного товара можно выбрать несколько характеристик, влияющих на цену."></i>
+                        </div>
+                        <select name="param12">
+                            <option value="" selected="">Нет</option>
+                            <option value="3">1</option>
+                            <option value="4">2</option>
+                            <option value="19">3</option>
+                            <option value="20">4+</option>
+                            <option value="21">Студия</option>
+                        </select>
+                    </div>
+                    <div class="unit shop_param" id="param13">
+                        <div class="infofield">
+                            Площадь участка
+                            <i class="tooltip fa fa-question-circle" title="Группа полей, определенных в части «Характеристики». Для характеристики с типом «список с выбором нескольких значений» можно задать несколько цен для товара. Для одного товара можно выбрать несколько характеристик, влияющих на цену."></i>
+                        </div>
+                        <input type="text" name="param13" value="" />
+                    </div>
+                    <div class="unit shop_param" id="param9">
+                        <div class="infofield">
+                            Жилая площадь
+                            <i class="tooltip fa fa-question-circle" title="Группа полей, определенных в части «Характеристики». Для характеристики с типом «список с выбором нескольких значений» можно задать несколько цен для товара. Для одного товара можно выбрать несколько характеристик, влияющих на цену."></i>
+                        </div>
+                        <input type="text" name="param9" value="" />
+                    </div>
+                    <div class="unit shop_param" id="param19">
+                        <div class="infofield">
+                            Дата добавления объекта
+                            <i class="tooltip fa fa-question-circle" title="Группа полей, определенных в части «Характеристики». Для характеристики с типом «список с выбором нескольких значений» можно задать несколько цен для товара. Для одного товара можно выбрать несколько характеристик, влияющих на цену."></i>
+                        </div>
+                        <input type="text" id="filed_param19" name="param19" value="11.03.2019" class="timecalendar hasDatepicker"
+                            showtime="false" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="alert alert-danger" role="alert">
+            <div class="content__left content__left_full">
+                <h1>Напиши!!!</h1>
+                <h1>И увидишь что будет</h1>
+                <form method="POST" action="">
+                    {% csrf_token %}
+
+                    {{ form.non_field_errors }}
+
+                    <div class="field_wrapper">
+                        {{ form.title.errors }}
+
+                        <label for="{{ form.title.id_for_label }}">Заголовок1</label>
+
+                        {{ form.title }}
+                    </div>
+
+                    <div class="field_wrapper">
+                        {{ form.tittle.errors }}
+
+                        <label for="{{ form.tittle.id_for_label }}">Заголовок2</label>
+
+                        {{ form.tittle }}
+                    </div>
+
+                    <div class="field_wrapper">
+                        {{ form.titttle.errors }}
+
+                        <label for="{{ form.titttle.id_for_label }}">Заголовок3</label>
+
+                        {{ form.titttle }}
+                    </div>
+
+                    <div class="field_wrapper">
+                        {{ form.description.errors }}
+
+                        <label for="{{ form.description.id_for_label }}">Описание</label>
+
+                        {{ form.description }}
+                    </div>
+
+                    <button type="submit" value="Save" class="btn btn-lg btn-primary">
+                        отправить
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock blockname %}
